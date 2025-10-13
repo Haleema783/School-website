@@ -1,46 +1,79 @@
 // pages/Facilities.jsx
 import React from "react";
 import { 
-  FaDumbbell, 
-  FaRunning, 
-  FaSwimmer, 
-  FaBicycle, 
-  FaSpa, 
-  FaUserShield,
-  FaUtensils,
-  FaShower,
+  FaBookOpen, 
+  FaChalkboardTeacher, 
+  FaLaptop, 
+  FaMicroscope, 
+  FaFootballBall, 
+  FaPaintBrush,
   FaWifi,
-  FaParking,
-  FaHeartbeat,
-  FaClock
+  FaBus,
+  FaShieldAlt
 } from "react-icons/fa";
 
 const Facilities = () => {
   const facilities = [
-    { title: "Strength Zone", description: "Top-quality free weights, squat racks, and machines for strength training.", icon: FaDumbbell },
-    { title: "Cardio Zone", description: "Modern treadmills, bikes, and ellipticals for endurance workouts.", icon: FaRunning },
-    { title: "Lifting Machines", description: "High-performance lifting machines designed to help you build strength safely and effectively.", icon: FaDumbbell },
-    { title: "Cycling Studio", description: "High-energy spin classes with immersive lighting and music.", icon: FaBicycle },
-    { title: "24/7 Security", description: "CCTV and secure access to ensure members’ safety at all times.", icon: FaUserShield },
-    { title: "Showers & Lockers", description: "Modern locker rooms with hot showers and changing space.", icon: FaShower },
-    { title: "Free Wi-Fi", description: "Stay connected with high-speed internet while training.", icon: FaWifi },
-    { title: "Parking Area", description: "Ample, secure parking space for cars and bikes.", icon: FaParking },
-    { title: "Medical Support", description: "On-site first aid and emergency response readiness.", icon: FaHeartbeat },
+    { 
+      title: "Smart Classrooms", 
+      description: "Modern digital classrooms equipped with interactive boards and projectors.", 
+      icon: FaChalkboardTeacher 
+    },
+    { 
+      title: "Computer Lab", 
+      description: "Fully equipped computer lab to enhance digital learning and creativity.", 
+      icon: FaLaptop 
+    },
+    { 
+      title: "Science Laboratory", 
+      description: "Hands-on experiments in a safe, well-equipped science lab.", 
+      icon: FaMicroscope 
+    },
+    { 
+      title: "Library", 
+      description: "A quiet, resource-rich library encouraging reading and research habits.", 
+      icon: FaBookOpen 
+    },
+    { 
+      title: "Sports & Games", 
+      description: "Spacious playground and indoor facilities promoting fitness and teamwork.", 
+      icon: FaFootballBall 
+    },
+    { 
+      title: "Art & Craft Studio", 
+      description: "Where imagination meets creation — craft, draw, and design.", 
+      icon: FaPaintBrush 
+    },
+    { 
+      title: "Free Wi-Fi", 
+      description: "High-speed internet access across the campus for students and teachers.", 
+      icon: FaWifi 
+    },
+    { 
+      title: "School Transport", 
+      description: "Safe and reliable school bus service for students.", 
+      icon: FaBus 
+    },
+    { 
+      title: "Campus Safety", 
+      description: "24/7 security and CCTV monitoring for a safe learning environment.", 
+      icon: FaShieldAlt 
+    },
   ];
 
   return (
     <div className="mt-5">
-      <div className="bg-black min-h-screen text-gray-100">
+      <div className="bg-gradient-to-b from-gray-100 to-white min-h-screen text-gray-800">
         <div className="container mx-auto px-6 py-16">
           
           {/* Title */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent mb-4">
-              Gym Facilities & Amenities
+            <h1 className="text-4xl font-bold text-gray-800 mb-4">
+              School Facilities & Amenities
             </h1>
-            <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-              At IronCore Fitness, we offer world-class facilities to make your training
-              experience complete, safe, and enjoyable.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              At BrightMind School, we provide a nurturing environment with modern facilities
+              to support learning, creativity, and overall development.
             </p>
           </div>
 
@@ -52,24 +85,24 @@ const Facilities = () => {
                 return (
                   <div
                     key={index}
-                    className="bg-[#111] border border-gray-800 rounded-2xl p-8 text-center 
-                               transition-all duration-500 hover:scale-105 hover:border-red-500 
-                               shadow-md hover:shadow-red-600/50 group"
+                    className="bg-white border border-gray-300 rounded-2xl p-8 text-center 
+                               transition-all duration-500 hover:scale-105 hover:shadow-lg 
+                               hover:border-gray-500 group"
                   >
                     {/* Icon */}
                     <div className="flex justify-center mb-4">
-                      <div className="p-4 rounded-full bg-gradient-to-br from-red-600 to-red-800 shadow-md">
-                        <IconComponent className="text-white text-2xl" />
+                      <div className="p-4 rounded-full bg-gray-200 group-hover:bg-gray-700 transition-all duration-300 shadow-md">
+                        <IconComponent className="text-gray-700 group-hover:text-white text-2xl transition-all duration-300" />
                       </div>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-semibold text-white mb-3">
+                    <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-gray-900">
                       {facility.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-all duration-300">
                       {facility.description}
                     </p>
                   </div>

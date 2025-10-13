@@ -4,9 +4,10 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import { FaWhatsapp } from "react-icons/fa";
 import About from './pages/About';
-import Services from './pages/Services';
+import Academics from './pages/Academics';
+import Admissions from './pages/Admissions';
+import Facilities from './pages/Facilities';
 import Gallery from './pages/Gallery';
-import Membership from './pages/Membership';
 import ContactUs from './pages/ContactUs';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -37,9 +38,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/academics" element={<Academics />} />
+          <Route path="/admissions" element={<Admissions />} />
+          <Route path="/facilities" element={<Facilities />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/membership" element={<Membership />} />
           <Route path="/contactus" element={<ContactUs />} />
         </Routes>
 

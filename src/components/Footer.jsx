@@ -16,11 +16,7 @@ const Footer = () => {
 
   // Show button when page is scrolled down
   const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
+    setIsVisible(window.pageYOffset > 300);
   };
 
   // Scroll to top smoothly
@@ -36,81 +32,101 @@ const Footer = () => {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  // Helper: scroll to top instantly on navigation
-  const handleLinkClick = () => {
-    window.scrollTo(0, 0);
-  };
+  const handleLinkClick = () => window.scrollTo(0, 0);
 
   return (
-    <footer className="bg-black text-white py-12 relative">
+    <footer className="bg-gray-100 text-gray-700 py-12 relative">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand Info */}
+          {/* School Info */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4 text-red-500">
-              IronCore Fitness
+            <h3 className="text-2xl font-bold mb-4 text-gray-800">
+              Sunshine School
             </h3>
-            <p className="mb-6 max-w-md text-gray-400">
-              Building strength, endurance, and community since day one. At
-              IronCore Fitness, we provide world-class training facilities and
-              support to help you achieve lasting results.
+            <p className="mb-6 max-w-md text-gray-600">
+              Dedicated to excellence in education and character building.  
+              We nurture young minds with knowledge, creativity, and compassion.
             </p>
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="bg-[#0a0a0a] hover:bg-red-600 p-3 rounded-lg transition"
+                className="bg-white hover:bg-gray-200 p-3 rounded-full shadow transition"
               >
-                <FaFacebookF className="text-white" />
+                <FaFacebookF className="text-gray-700" />
               </a>
               <a
                 href="#"
-                className="bg-[#0a0a0a] hover:bg-red-600 p-3 rounded-lg transition"
+                className="bg-white hover:bg-gray-200 p-3 rounded-full shadow transition"
               >
-                <FaTwitter className="text-white" />
+                <FaTwitter className="text-gray-700" />
               </a>
               <a
                 href="#"
-                className="bg-[#0a0a0a] hover:bg-red-600 p-3 rounded-lg transition"
+                className="bg-white hover:bg-gray-200 p-3 rounded-full shadow transition"
               >
-                <FaInstagram className="text-white" />
+                <FaInstagram className="text-gray-700" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-red-500">
+            <h4 className="text-lg font-semibold mb-4 text-gray-800">
               Quick Links
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/" onClick={handleLinkClick} className="hover:text-red-500 transition">
+                <Link
+                  to="/"
+                  onClick={handleLinkClick}
+                  className="hover:text-gray-900 transition"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" onClick={handleLinkClick} className="hover:text-red-500 transition">
+                <Link
+                  to="/about"
+                  onClick={handleLinkClick}
+                  className="hover:text-gray-900 transition"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/services" onClick={handleLinkClick} className="hover:text-red-500 transition">
-                  Services
+                <Link
+                  to="/academics"
+                  onClick={handleLinkClick}
+                  className="hover:text-gray-900 transition"
+                >
+                  Academics
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" onClick={handleLinkClick} className="hover:text-red-500 transition">
-                  Gallery
+                <Link
+                  to="/admissions"
+                  onClick={handleLinkClick}
+                  className="hover:text-gray-900 transition"
+                >
+                  Admissions
                 </Link>
               </li>
               <li>
-                <Link to="/membership" onClick={handleLinkClick} className="hover:text-red-500 transition">
-                  Membership
+                <Link
+                  to="/facilities"
+                  onClick={handleLinkClick}
+                  className="hover:text-gray-900 transition"
+                >
+                  Facilities
                 </Link>
               </li>
               <li>
-                <Link to="/contactus" onClick={handleLinkClick} className="hover:text-red-500 transition">
-                  Contact
+                <Link
+                  to="/contactus"
+                  onClick={handleLinkClick}
+                  className="hover:text-gray-900 transition"
+                >
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -118,35 +134,36 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-red-500">
+            <h4 className="text-lg font-semibold mb-4 text-gray-800">
               Contact Info
             </h4>
-            <ul className="space-y-4 text-gray-400">
+            <ul className="space-y-4 text-gray-600">
               <li className="flex items-start gap-3">
-                <FaMapMarkerAlt className="text-red-500 mt-1" />
-                <span>123 Fitness Street, Downtown, City, Country</span>
+                <FaMapMarkerAlt className="text-gray-700 mt-1" />
+                <span>123 School Lane, City Center, Pakistan</span>
               </li>
               <li className="flex items-center gap-3">
-                <FaPhone className="text-red-500" />
+                <FaPhone className="text-gray-700" />
                 <span>+92 340 5542097</span>
               </li>
               <li className="flex items-center gap-3">
-                <FaEnvelope className="text-red-500" />
-                <span>info@ironcorefitness.com</span>
+                <FaEnvelope className="text-gray-700" />
+                <span>info@sunshineschool.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-10 pt-6 text-center">
+        <div className="border-t border-gray-300 mt-10 pt-6 text-center">
           <p className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} IronCore Fitness. All rights
-            reserved. | Made by Apexium Technologies| +923295425413
+            &copy; {new Date().getFullYear()}  All
+            rights reserved. | Designed by Apexium Technologies | 923295425413
           </p>
         </div>
       </div>
 
+      
     </footer>
   );
 };
