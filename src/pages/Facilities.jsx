@@ -62,54 +62,52 @@ const Facilities = () => {
   ];
 
   return (
-    <div className="mt-5">
-      <div className="bg-gradient-to-b from-gray-100 to-white min-h-screen text-gray-800">
-        <div className="container mx-auto px-6 py-16">
-          
-          {/* Title */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">
-              School Facilities & Amenities
-            </h1>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              At BrightMind School, we provide a nurturing environment with modern facilities
-              to support learning, creativity, and overall development.
-            </p>
-          </div>
+    <div className="bg-gradient-to-b from-gray-100 to-white min-h-screen text-gray-800 py-24">
+      <div className="container mx-auto px-6 lg:px-16">
+        
+        {/* Title */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            School Facilities & Amenities
+          </h1>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            At <span className="font-semibold text-gray-800">BrightMind School</span>, 
+            we provide a nurturing environment with modern facilities to support 
+            learning, creativity, and overall development.
+          </p>
+        </div>
 
-          {/* Facilities Grid */}
-          <section className="mb-20">
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {facilities.map((facility, index) => {
-                const IconComponent = facility.icon;
-                return (
-                  <div
-                    key={index}
-                    className="bg-white border border-gray-300 rounded-2xl p-8 text-center 
-                               transition-all duration-500 hover:scale-105 hover:shadow-lg 
-                               hover:border-gray-500 group"
-                  >
-                    {/* Icon */}
-                    <div className="flex justify-center mb-4">
-                      <div className="p-4 rounded-full bg-gray-200 group-hover:bg-gray-700 transition-all duration-300 shadow-md">
-                        <IconComponent className="text-gray-700 group-hover:text-white text-2xl transition-all duration-300" />
-                      </div>
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-gray-900">
-                      {facility.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-all duration-300">
-                      {facility.description}
-                    </p>
+        {/* Facilities Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+          {facilities.map((facility, index) => {
+            const IconComponent = facility.icon;
+            return (
+              <div
+                key={index}
+                className="bg-white border border-gray-200 rounded-2xl p-8 text-center 
+                           transition-all duration-500 hover:scale-105 hover:shadow-2xl 
+                           hover:border-gray-400 group"
+              >
+                {/* Icon */}
+                <div className="flex justify-center mb-6">
+                  <div className="p-5 rounded-full bg-gray-100 
+                                 group-hover:bg-gray-800 transition-all duration-300 shadow-md">
+                    <IconComponent className="text-gray-700 group-hover:text-white text-3xl transition-all duration-300" />
                   </div>
-                );
-              })}
-            </div>
-          </section>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {facility.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-600 text-base group-hover:text-gray-700 transition-all duration-300 leading-relaxed">
+                  {facility.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

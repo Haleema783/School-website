@@ -1,5 +1,6 @@
 // pages/Contact.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -11,6 +12,11 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
+
+  // Scroll to top smoothly when the component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const validateForm = () => {
     const newErrors = {};
@@ -70,25 +76,31 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen text-gray-900">
-      <div className="container mx-auto px-6 py-16">
+    <div className="bg-gradient-to-b from-gray-100 to-white min-h-screen text-gray-900 py-24">
+      <div className="container mx-auto px-6 lg:px-16">
         {/* Title */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Contact Us
           </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Have a question about admissions, school activities, or academics?
-            Send us a message and we’ll respond as soon as possible.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Have a question about admissions, school activities, or academics?{" "}
+            <span className="font-semibold text-gray-800">
+              We’d love to hear from you.
+            </span>{" "}
+            Fill out the form below and we’ll respond promptly.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           {/* Contact Form */}
-          <div className="bg-white rounded-xl p-8 border border-gray-300 shadow-md">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+          <div className="bg-white border border-gray-200 rounded-2xl p-10 shadow-md 
+                          transition-all duration-500 hover:shadow-2xl hover:border-gray-400">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
               Get in Touch
             </h2>
+
             <form onSubmit={handleSubmit} className="space-y-6" noValidate>
               {/* Name */}
               <div>
@@ -99,9 +111,10 @@ const Contact = () => {
                   placeholder="Full Name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 text-gray-800 ${
-                    errors.name ? "border-red-500" : "border-gray-300"
-                  }`}
+                  className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
+                    focus:ring-gray-400 text-gray-800 transition-all duration-300 ${
+                      errors.name ? "border-red-500" : "border-gray-300"
+                    }`}
                 />
                 {errors.name && (
                   <p className="mt-1 text-sm text-red-500">{errors.name}</p>
@@ -117,9 +130,10 @@ const Contact = () => {
                   placeholder="Email Address"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 text-gray-800 ${
-                    errors.email ? "border-red-500" : "border-gray-300"
-                  }`}
+                  className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
+                    focus:ring-gray-400 text-gray-800 transition-all duration-300 ${
+                      errors.email ? "border-red-500" : "border-gray-300"
+                    }`}
                 />
                 {errors.email && (
                   <p className="mt-1 text-sm text-red-500">{errors.email}</p>
@@ -135,9 +149,10 @@ const Contact = () => {
                   placeholder="Phone Number"
                   value={formData.phone}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 text-gray-800 ${
-                    errors.phone ? "border-red-500" : "border-gray-300"
-                  }`}
+                  className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
+                    focus:ring-gray-400 text-gray-800 transition-all duration-300 ${
+                      errors.phone ? "border-red-500" : "border-gray-300"
+                    }`}
                 />
                 {errors.phone && (
                   <p className="mt-1 text-sm text-red-500">{errors.phone}</p>
@@ -151,9 +166,10 @@ const Contact = () => {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 text-gray-800 ${
-                    errors.subject ? "border-red-500" : "border-gray-300"
-                  }`}
+                  className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
+                    focus:ring-gray-400 text-gray-800 transition-all duration-300 ${
+                      errors.subject ? "border-red-500" : "border-gray-300"
+                    }`}
                 >
                   <option value="">Select a topic</option>
                   <option value="admissions">Admissions Inquiry</option>
@@ -175,19 +191,23 @@ const Contact = () => {
                   placeholder="Your Message"
                   value={formData.message}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 text-gray-800 ${
-                    errors.message ? "border-red-500" : "border-gray-300"
-                  }`}
+                  className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
+                    focus:ring-gray-400 text-gray-800 transition-all duration-300 ${
+                      errors.message ? "border-red-500" : "border-gray-300"
+                    }`}
                 ></textarea>
                 {errors.message && (
                   <p className="mt-1 text-sm text-red-500">{errors.message}</p>
                 )}
               </div>
 
+              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 rounded-lg transition-colors duration-200"
+                className="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold 
+                           hover:bg-gray-700 hover:shadow-lg transform hover:-translate-y-1 
+                           transition-all duration-300 ease-in-out"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
@@ -196,22 +216,20 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="space-y-8">
-            <div className="bg-white rounded-xl p-8 border border-gray-300 shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                Reach Us
-              </h3>
-              <ul className="space-y-3 text-gray-700">
+            <div className="bg-white border border-gray-200 rounded-2xl p-10 shadow-md 
+                            transition-all duration-500 hover:shadow-2xl hover:border-gray-400">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Reach Us</h3>
+              <ul className="space-y-3 text-gray-700 leading-relaxed">
                 <li>📍 SunShine School, Model Town, Lahore</li>
                 <li>📞 +92 300 1234567</li>
                 <li>📧 info@sunshineschool.edu.pk</li>
               </ul>
             </div>
 
-            <div className="bg-white rounded-xl p-8 border border-gray-300 shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                Office Hours
-              </h3>
-              <ul className="space-y-2 text-gray-700">
+            <div className="bg-white border border-gray-200 rounded-2xl p-10 shadow-md 
+                            transition-all duration-500 hover:shadow-2xl hover:border-gray-400">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Office Hours</h3>
+              <ul className="space-y-2 text-gray-700 leading-relaxed">
                 <li>Mon - Fri: 8:00 AM - 2:00 PM</li>
                 <li>Saturday: 8:00 AM - 12:00 PM</li>
                 <li>Sunday: Closed</li>

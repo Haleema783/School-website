@@ -65,27 +65,40 @@ const Academics = () => {
         </div>
 
         {/* Programs Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {programs.map((program, index) => {
             const Icon = program.icon;
             return (
               <div
                 key={index}
-                className="bg-white border border-gray-300 rounded-2xl p-8 text-center shadow-md 
-                           hover:shadow-xl hover:border-gray-400 transition-all duration-500 hover:scale-105"
+                className="group bg-white border border-gray-300 rounded-2xl p-8 text-center 
+                           transition-all duration-500 hover:scale-105 hover:shadow-lg hover:border-gray-500"
               >
                 {/* Icon */}
                 <div className="flex justify-center mb-4">
-                  <div className="p-4 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full shadow-md">
-                    <Icon className="text-white text-2xl" />
+                  <div
+                    className="p-5 rounded-full bg-gray-200 shadow-md 
+                               group-hover:bg-gray-700 transition-all duration-300"
+                  >
+                    <Icon className="text-gray-700 group-hover:text-white text-2xl transition-all duration-300" />
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-semibold mb-3">{program.title}</h3>
+                <h3
+                  className="text-xl font-semibold text-gray-800 mb-3 
+                             group-hover:text-gray-900 transition-all duration-300"
+                >
+                  {program.title}
+                </h3>
 
                 {/* Description */}
-                <p className="text-gray-600 text-sm">{program.description}</p>
+                <p
+                  className="text-gray-600 text-sm group-hover:text-gray-700 
+                             transition-all duration-300 leading-relaxed"
+                >
+                  {program.description}
+                </p>
               </div>
             );
           })}

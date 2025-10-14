@@ -35,7 +35,7 @@ const Navbar = () => {
             onClick={scrollToTop}
           >
             <img
-              src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
+              src="https://static.vecteezy.com/system/resources/thumbnails/004/297/596/small_2x/education-logo-open-book-dictionary-textbook-or-notebook-with-sunrice-icon-modern-emblem-idea-concept-design-for-business-libraries-schools-universities-educational-courses-vector.jpg"
               alt="School Logo"
               className="h-10 w-10 object-cover"
             />

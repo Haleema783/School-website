@@ -54,39 +54,48 @@ const Gallery = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-gray-100 to-gray-200 min-h-screen py-16">
-      <div className="container mx-auto px-6">
+    <div className="bg-gradient-to-b from-gray-100 to-white min-h-screen text-gray-800 py-24">
+      <div className="container mx-auto px-6 lg:px-16">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Our School Gallery
           </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Explore BrightMind School — where creativity, curiosity, and learning thrive.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Explore{" "}
+            <span className="font-semibold text-gray-800">
+              SunShine School
+            </span>{" "}
+             where creativity, curiosity, and learning thrive every day.
           </p>
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mb-20">
           {images.map((image) => (
             <div
               key={image.id}
-              className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-500 bg-white border border-gray-200"
+              className="bg-white border border-gray-200 rounded-2xl overflow-hidden 
+                         shadow-md hover:shadow-2xl transition-all duration-500 
+                         hover:scale-105 hover:border-gray-400 group"
             >
               <div className="relative overflow-hidden">
                 <img
                   src={image.src}
                   alt={image.caption}
-                  className="w-full h-64 object-cover transform group-hover:scale-105 transition duration-700"
+                  className="w-full h-64 object-cover transform group-hover:scale-110 
+                             transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-gray-100/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-4">
-                  <div className="transform translate-y-4 group-hover:translate-y-0 transition duration-500">
-                    <p className="text-gray-800 text-lg font-semibold mb-1">
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-gray-800/20 to-transparent 
+                                opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end">
+                  <div className="p-5 text-left transform translate-y-4 group-hover:translate-y-0 
+                                  transition-transform duration-500">
+                    <h3 className="text-white text-lg font-semibold mb-1">
                       {image.caption}
-                    </p>
-                    <span className="text-gray-600 text-sm capitalize">
+                    </h3>
+                    <p className="text-gray-300 text-sm capitalize">
                       {image.category.replace("-", " ")}
-                    </span>
+                    </p>
                   </div>
                 </div>
               </div>
