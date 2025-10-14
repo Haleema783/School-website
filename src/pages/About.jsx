@@ -1,4 +1,4 @@
-// pages/About.jsx
+// src/pages/About.jsx
 import React from "react";
 
 const About = () => {
@@ -26,12 +26,31 @@ const About = () => {
   ];
 
   return (
-    <div className="bg-gray-50 text-gray-800 min-h-screen py-20">
-      <div className="container mx-auto px-6 lg:px-16">
-        {/* Introduction Section */}
+    <div className="bg-gradient-to-b from-gray-50 to-white text-gray-800 min-h-screen">
+      {/* Hero / Intro */}
+      <section className="relative bg-[#004E5F] text-white py-24">
+        <div className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1600880292089-90e9b6c6b1a7?w=1600&auto=format&fit=crop&q=80')",
+          }}
+        ></div>
+        <div className="relative z-10 container mx-auto px-6 text-center">
+          <h1 className="text-5xl font-serif font-bold mb-4">
+            About Sunshine School
+          </h1>
+          <p className="max-w-2xl mx-auto text-lg text-gray-100">
+            Dedicated to excellence in education, shaping bright futures through
+            discipline, creativity, and care.
+          </p>
+        </div>
+      </section>
+
+      {/* About Content */}
+      <section className="py-20 container mx-auto px-6 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center mb-24">
           <div>
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 border-l-4 border-gray-500 pl-4">
+            <h2 className="text-3xl font-serif font-bold mb-6 text-[#004E5F]">
               About Our School
             </h2>
             <p className="mb-5 text-gray-700 leading-relaxed text-lg">
@@ -44,10 +63,10 @@ const About = () => {
             <p className="mb-5 text-gray-700 leading-relaxed text-lg">
               Our focus is on providing quality education through experienced
               teachers, modern facilities, and a friendly learning environment.
-              We encourage creativity, discipline, and teamwork so that each
-              student can achieve their highest potential.
+              We encourage creativity, discipline, and teamwork so each student
+              can reach their highest potential.
             </p>
-            <h3 className="text-xl font-semibold mt-8 mb-4 text-gray-900">
+            <h3 className="text-xl font-semibold mt-8 mb-4 text-[#F9634F]">
               What We Offer:
             </h3>
             <ul className="text-gray-700 space-y-3 list-disc ml-6 text-lg">
@@ -63,14 +82,14 @@ const About = () => {
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Staples_High_School%2C_Westport%2C_CT.jpg"
               alt="School Building"
-              className="rounded-2xl shadow-xl max-w-full"
+              className="rounded-2xl shadow-2xl max-w-full"
             />
           </div>
         </div>
 
-        {/* Mission Section */}
-        <div className="bg-white rounded-3xl shadow-lg p-12 mb-24 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+        {/* Mission */}
+        <div className="bg-white border border-gray-200 rounded-3xl shadow-lg p-12 mb-24 text-center">
+          <h2 className="text-3xl font-serif font-bold text-[#004E5F] mb-6">
             Our Mission
           </h2>
           <p className="max-w-3xl mx-auto text-gray-700 leading-relaxed text-lg">
@@ -81,17 +100,17 @@ const About = () => {
           </p>
         </div>
 
-        {/* Team Section */}
-        <h2 className="text-3xl font-bold text-center mb-14 text-gray-900">
+        {/* Team */}
+        <h2 className="text-3xl font-serif font-bold text-center mb-14 text-[#004E5F]">
           Our Management Team
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center mb-24">
           {team.map((member, i) => (
             <div
               key={i}
-              className="bg-white p-8 rounded-2xl shadow-md border border-gray-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              className="bg-white p-8 rounded-2xl shadow-md border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="relative mx-auto mb-6 w-36 h-36 rounded-full bg-gray-200 overflow-hidden">
+              <div className="relative mx-auto mb-6 w-36 h-36 rounded-full bg-gray-100 overflow-hidden">
                 <img
                   src={member.img}
                   alt={member.name}
@@ -101,93 +120,73 @@ const About = () => {
               <h3 className="text-lg font-semibold text-gray-800 mb-1">
                 {member.name}
               </h3>
-              <p className="text-gray-500">{member.role}</p>
+              <p className="text-[#F9634F]">{member.role}</p>
             </div>
           ))}
         </div>
 
         {/* Why Choose Us */}
-        <div className="mt-20 pb-10">
-          <h2 className="text-3xl font-bold text-center mb-14 text-gray-900">
-            Why Choose Us
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div className="bg-white p-8 rounded-2xl shadow-md border border-gray-200 text-center hover:shadow-lg transition-all duration-300">
-              <div className="w-20 h-20 mx-auto mb-5 bg-gray-100 rounded-full flex items-center justify-center">
+        <h2 className="text-3xl font-serif font-bold text-center mb-14 text-[#004E5F]">
+          Why Choose Us
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {[
+            {
+              title: "Qualified Teachers",
+              desc: "Our experienced faculty ensures quality learning with care and creativity.",
+              icon: (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 14l9-5-9-5-9 5 9 5zm0 7v-7"
+                />
+              ),
+            },
+            {
+              title: "Modern Facilities",
+              desc: "From labs to smart classrooms, we offer the best learning environment.",
+              icon: (
+                <>
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M3 9h18M9 21V9" />
+                </>
+              ),
+            },
+            {
+              title: "Proven Results",
+              desc: "Our students consistently achieve excellent results and secure admissions in top institutions.",
+              icon: (
+                <>
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </>
+              ),
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="bg-white p-10 rounded-2xl shadow-md border border-gray-200 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="w-20 h-20 mx-auto mb-6 bg-[#004E5F]/10 rounded-full flex items-center justify-center">
                 <svg
                   viewBox="0 0 24 24"
-                  className="h-10 w-10 text-gray-600"
+                  className="h-10 w-10 text-[#004E5F]"
                   fill="none"
                   stroke="currentColor"
+                  strokeWidth={2}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 14l9-5-9-5-9 5 9 5zm0 7v-7"
-                  />
+                  {item.icon}
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-800">
-                Qualified Teachers
+                {item.title}
               </h3>
-              <p className="text-gray-600 text-lg">
-                Our experienced faculty ensures quality learning with care and
-                creativity.
-              </p>
+              <p className="text-gray-600 text-lg">{item.desc}</p>
             </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-md border border-gray-200 text-center hover:shadow-lg transition-all duration-300">
-              <div className="w-20 h-20 mx-auto mb-5 bg-gray-100 rounded-full flex items-center justify-center">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-10 w-10 text-gray-600"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <rect
-                    x="3"
-                    y="3"
-                    width="18"
-                    height="18"
-                    rx="2"
-                    strokeWidth={2}
-                  />
-                  <path d="M3 9h18M9 21V9" strokeWidth={2} />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-800">
-                Modern Facilities
-              </h3>
-              <p className="text-gray-600 text-lg">
-                From labs to smart classrooms, we offer the best learning
-                environment.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-md border border-gray-200 text-center hover:shadow-lg transition-all duration-300">
-              <div className="w-20 h-20 mx-auto mb-5 bg-gray-100 rounded-full flex items-center justify-center">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-10 w-10 text-gray-600"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <circle cx="12" cy="12" r="10" strokeWidth={2} />
-                  <path d="M12 6v6l4 2" strokeWidth={2} />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-800">
-                Proven Results
-              </h3>
-              <p className="text-gray-600 text-lg">
-                Our students consistently achieve excellent results and secure
-                admissions in top institutions.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 };

@@ -14,17 +14,13 @@ import {
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Show button when page is scrolled down
+  // Show button when scrolled down
   const toggleVisibility = () => {
     setIsVisible(window.pageYOffset > 300);
   };
 
-  // Scroll to top smoothly
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -35,119 +31,83 @@ const Footer = () => {
   const handleLinkClick = () => window.scrollTo(0, 0);
 
   return (
-    <footer className="bg-gray-100 text-gray-700 py-12 relative">
+    <footer className="bg-[#004E53] text-white py-14 relative font-nunito">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* School Info */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4 text-gray-800">
+            <h3 className="text-2xl font-bold mb-4 text-[#FF6B6B] font-poppins">
               Sunshine School
             </h3>
-            <p className="mb-6 max-w-md text-gray-600">
+            <p className="mb-6 max-w-md text-gray-200 leading-relaxed">
               Dedicated to excellence in education and character building.  
               We nurture young minds with knowledge, creativity, and compassion.
             </p>
+
+            {/* Social Icons */}
             <div className="flex space-x-4">
-              <a
-                href="#"
-                className="bg-white hover:bg-gray-200 p-3 rounded-full shadow transition"
-              >
-                <FaFacebookF className="text-gray-700" />
-              </a>
-              <a
-                href="#"
-                className="bg-white hover:bg-gray-200 p-3 rounded-full shadow transition"
-              >
-                <FaTwitter className="text-gray-700" />
-              </a>
-              <a
-                href="#"
-                className="bg-white hover:bg-gray-200 p-3 rounded-full shadow transition"
-              >
-                <FaInstagram className="text-gray-700" />
-              </a>
+              {[
+                { icon: FaFacebookF, link: "#" },
+                { icon: FaTwitter, link: "#" },
+                { icon: FaInstagram, link: "#" },
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <a
+                    key={i}
+                    href={item.link}
+                    className="bg-white/10 hover:bg-[#FF6B6B] p-3 rounded-full shadow-md transition-all duration-300 hover:shadow-[#FF6B6B]/50"
+                  >
+                    <Icon className="text-white text-lg" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-gray-800">
+            <h4 className="text-lg font-semibold mb-4 text-[#FF6B6B] font-poppins">
               Quick Links
             </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  to="/"
-                  onClick={handleLinkClick}
-                  className="hover:text-gray-900 transition"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/about"
-                  onClick={handleLinkClick}
-                  className="hover:text-gray-900 transition"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/academics"
-                  onClick={handleLinkClick}
-                  className="hover:text-gray-900 transition"
-                >
-                  Academics
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/admissions"
-                  onClick={handleLinkClick}
-                  className="hover:text-gray-900 transition"
-                >
-                  Admissions
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/facilities"
-                  onClick={handleLinkClick}
-                  className="hover:text-gray-900 transition"
-                >
-                  Facilities
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contactus"
-                  onClick={handleLinkClick}
-                  className="hover:text-gray-900 transition"
-                >
-                  Contact Us
-                </Link>
-              </li>
+            <ul className="space-y-3 text-gray-200">
+              {[
+                { to: "/", label: "Home" },
+                { to: "/about", label: "About Us" },
+                { to: "/academics", label: "Academics" },
+                { to: "/admissions", label: "Admissions" },
+                { to: "/facilities", label: "Facilities" },
+                { to: "/contactus", label: "Contact Us" },
+              ].map((link, i) => (
+                <li key={i}>
+                  <Link
+                    to={link.to}
+                    onClick={handleLinkClick}
+                    className="hover:text-[#FF6B6B] transition-colors duration-300"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-gray-800">
+            <h4 className="text-lg font-semibold mb-4 text-[#FF6B6B] font-poppins">
               Contact Info
             </h4>
-            <ul className="space-y-4 text-gray-600">
+            <ul className="space-y-4 text-gray-200">
               <li className="flex items-start gap-3">
-                <FaMapMarkerAlt className="text-gray-700 mt-1" />
+                <FaMapMarkerAlt className="text-[#FF6B6B] mt-1" />
                 <span>123 School Lane, City Center, Pakistan</span>
               </li>
               <li className="flex items-center gap-3">
-                <FaPhone className="text-gray-700" />
+                <FaPhone className="text-[#FF6B6B]" />
                 <span>+92 340 5542097</span>
               </li>
               <li className="flex items-center gap-3">
-                <FaEnvelope className="text-gray-700" />
+                <FaEnvelope className="text-[#FF6B6B]" />
                 <span>info@sunshineschool.com</span>
               </li>
             </ul>
@@ -155,10 +115,10 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-300 mt-10 pt-6 text-center">
-          <p className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()}  All
-            rights reserved. | Designed by Apexium Technologies | 923295425413
+        <div className="border-t border-white/10 mt-10 pt-6 text-center text-gray-300 text-sm">
+          <p>
+            &copy; {new Date().getFullYear()} Sunshine School. All rights reserved.  
+            | Designed by <span className="text-[#FF6B6B] font-semibold">Apexium Technologies</span> | +923295425413
           </p>
         </div>
       </div>

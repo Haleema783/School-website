@@ -50,53 +50,51 @@ const Academics = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-gray-100 to-white text-gray-800 py-20">
-      <div className="container mx-auto px-6">
+    <section className="bg-[#FAFAFA] text-gray-800 py-24 relative overflow-hidden">
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#E6E6E6]/40 via-transparent to-[#FAFAFA]"></div>
+
+      <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-4xl font-bold text-[#006D77] mb-4 font-poppins tracking-wide">
             Academic Programs
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed font-nunito">
             Our academic system is designed to inspire critical thinking,
-            creativity, and excellence — nurturing lifelong learners ready for a
+            creativity, and excellence  nurturing lifelong learners ready for a
             bright future.
           </p>
         </div>
 
         {/* Programs Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {programs.map((program, index) => {
             const Icon = program.icon;
             return (
               <div
                 key={index}
-                className="group bg-white border border-gray-300 rounded-2xl p-8 text-center 
-                           transition-all duration-500 hover:scale-105 hover:shadow-lg hover:border-gray-500"
+                className="group bg-white border border-[#E6E6E6] rounded-2xl p-8 text-center 
+                           shadow-md hover:shadow-lg hover:shadow-[#006D77]/20 hover:-translate-y-2
+                           transition-all duration-500 hover:border-[#FF6B6B]/40"
               >
                 {/* Icon */}
-                <div className="flex justify-center mb-4">
+                <div className="flex justify-center mb-6">
                   <div
-                    className="p-5 rounded-full bg-gray-200 shadow-md 
-                               group-hover:bg-gray-700 transition-all duration-300"
+                    className="p-5 rounded-full bg-gradient-to-tr from-[#006D77] to-[#FF6B6B] 
+                               shadow-md group-hover:scale-110 transition-transform duration-300"
                   >
-                    <Icon className="text-gray-700 group-hover:text-white text-2xl transition-all duration-300" />
+                    <Icon className="text-white text-3xl" />
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3
-                  className="text-xl font-semibold text-gray-800 mb-3 
-                             group-hover:text-gray-900 transition-all duration-300"
-                >
+                <h3 className="text-xl font-semibold text-[#006D77] mb-3 font-poppins group-hover:text-[#FF6B6B] transition-all duration-300">
                   {program.title}
                 </h3>
 
                 {/* Description */}
-                <p
-                  className="text-gray-600 text-sm group-hover:text-gray-700 
-                             transition-all duration-300 leading-relaxed"
-                >
+                <p className="text-gray-600 text-base leading-relaxed font-nunito group-hover:text-gray-700 transition-all duration-300">
                   {program.description}
                 </p>
               </div>
@@ -104,7 +102,7 @@ const Academics = () => {
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

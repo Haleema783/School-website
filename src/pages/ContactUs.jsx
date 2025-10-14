@@ -13,7 +13,6 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
 
-  // Scroll to top smoothly when the component mounts
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
@@ -38,24 +37,18 @@ const Contact = () => {
       ...prev,
       [name]: value,
     }));
-
     if (errors[name]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: "",
-      }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formErrors = validateForm();
-
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
       return;
     }
-
     setIsSubmitting(true);
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -76,16 +69,16 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-gray-100 to-white min-h-screen text-gray-900 py-24">
+    <div className="bg-[#FAFAFA] min-h-screen text-gray-900 py-28">
       <div className="container mx-auto px-6 lg:px-16">
         {/* Title */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-[#006D77] mb-4 font-poppins tracking-wide">
             Contact Us
-          </h1>
+          </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Have a question about admissions, school activities, or academics?{" "}
-            <span className="font-semibold text-gray-800">
+            <span className="font-semibold text-[#006D77]">
               We’d love to hear from you.
             </span>{" "}
             Fill out the form below and we’ll respond promptly.
@@ -95,9 +88,11 @@ const Contact = () => {
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           {/* Contact Form */}
-          <div className="bg-white border border-gray-200 rounded-2xl p-10 shadow-md 
-                          transition-all duration-500 hover:shadow-2xl hover:border-gray-400">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+          <div
+            className="bg-white border border-gray-200 rounded-2xl p-10 shadow-md 
+                       hover:shadow-2xl hover:border-[#FF6B6B]/40 transition-all duration-500"
+          >
+            <h2 className="text-2xl font-semibold text-[#004d4d] mb-6">
               Get in Touch
             </h2>
 
@@ -112,7 +107,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
-                    focus:ring-gray-400 text-gray-800 transition-all duration-300 ${
+                    focus:ring-[#006D77] text-gray-800 transition-all duration-300 ${
                       errors.name ? "border-red-500" : "border-gray-300"
                     }`}
                 />
@@ -131,7 +126,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
-                    focus:ring-gray-400 text-gray-800 transition-all duration-300 ${
+                    focus:ring-[#006D77] text-gray-800 transition-all duration-300 ${
                       errors.email ? "border-red-500" : "border-gray-300"
                     }`}
                 />
@@ -150,7 +145,7 @@ const Contact = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
-                    focus:ring-gray-400 text-gray-800 transition-all duration-300 ${
+                    focus:ring-[#006D77] text-gray-800 transition-all duration-300 ${
                       errors.phone ? "border-red-500" : "border-gray-300"
                     }`}
                 />
@@ -167,7 +162,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
-                    focus:ring-gray-400 text-gray-800 transition-all duration-300 ${
+                    focus:ring-[#006D77] text-gray-800 transition-all duration-300 ${
                       errors.subject ? "border-red-500" : "border-gray-300"
                     }`}
                 >
@@ -192,7 +187,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
-                    focus:ring-gray-400 text-gray-800 transition-all duration-300 ${
+                    focus:ring-[#006D77] text-gray-800 transition-all duration-300 ${
                       errors.message ? "border-red-500" : "border-gray-300"
                     }`}
                 ></textarea>
@@ -205,9 +200,9 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold 
-                           hover:bg-gray-700 hover:shadow-lg transform hover:-translate-y-1 
-                           transition-all duration-300 ease-in-out"
+                className="w-full bg-[#006D77] text-white py-3 rounded-lg font-semibold 
+                           hover:bg-[#005A63] hover:shadow-lg transform hover:-translate-y-1 
+                           transition-all duration-300 ease-in-out focus:ring-4 focus:ring-[#FF6B6B]/40"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
@@ -216,9 +211,13 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="space-y-8">
-            <div className="bg-white border border-gray-200 rounded-2xl p-10 shadow-md 
-                            transition-all duration-500 hover:shadow-2xl hover:border-gray-400">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Reach Us</h3>
+            <div
+              className="bg-white border border-gray-200 rounded-2xl p-10 shadow-md 
+                         hover:shadow-2xl hover:border-[#FF6B6B]/40 transition-all duration-500"
+            >
+              <h3 className="text-xl font-semibold text-[#004d4d] mb-4">
+                Reach Us
+              </h3>
               <ul className="space-y-3 text-gray-700 leading-relaxed">
                 <li>📍 SunShine School, Model Town, Lahore</li>
                 <li>📞 +92 300 1234567</li>
@@ -226,9 +225,13 @@ const Contact = () => {
               </ul>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-2xl p-10 shadow-md 
-                            transition-all duration-500 hover:shadow-2xl hover:border-gray-400">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Office Hours</h3>
+            <div
+              className="bg-white border border-gray-200 rounded-2xl p-10 shadow-md 
+                         hover:shadow-2xl hover:border-[#FF6B6B]/40 transition-all duration-500"
+            >
+              <h3 className="text-xl font-semibold text-[#004d4d] mb-4">
+                Office Hours
+              </h3>
               <ul className="space-y-2 text-gray-700 leading-relaxed">
                 <li>Mon - Fri: 8:00 AM - 2:00 PM</li>
                 <li>Saturday: 8:00 AM - 12:00 PM</li>
