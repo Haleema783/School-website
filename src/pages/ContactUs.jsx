@@ -9,7 +9,6 @@ const Contact = () => {
     subject: "",
     message: "",
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -33,13 +32,8 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }));
-    }
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const handleSubmit = async (e) => {
@@ -69,90 +63,60 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-[#FAFAFA] min-h-screen text-gray-900 py-28">
+    <div className="bg-gradient-to-b from-[#FAFAFA] via-[#E6E6E6]/40 to-[#FAFAFA] min-h-screen text-gray-900 py-28">
       <div className="container mx-auto px-6 lg:px-16">
-        {/* Title */}
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-[#006D77] mb-4 font-poppins tracking-wide">
-            Contact Us
+            Get in Touch With Us
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Have a question about admissions, school activities, or academics?{" "}
-            <span className="font-semibold text-[#006D77]">
-              We’d love to hear from you.
-            </span>{" "}
-            Fill out the form below and we’ll respond promptly.
+            Have a question about{" "}
+            <span className="font-semibold text-[#FF6B6B]">
+              admissions or academics
+            </span>
+            ? We’d love to hear from you. Fill out the form below and we’ll
+            respond promptly.
           </p>
         </div>
 
-        {/* Main Content Grid */}
+        {/* Contact Section Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           {/* Contact Form */}
-          <div
-            className="bg-white border border-gray-200 rounded-2xl p-10 shadow-md 
-                       hover:shadow-2xl hover:border-[#FF6B6B]/40 transition-all duration-500"
-          >
+          <div className="bg-white/90 backdrop-blur-sm border border-transparent rounded-2xl p-10 
+                          shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 
+                          bg-gradient-to-r from-[#006D77]/5 via-[#FAFAFA] to-[#FF6B6B]/5">
             <h2 className="text-2xl font-semibold text-[#004d4d] mb-6">
-              Get in Touch
+              Send Us a Message
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-              {/* Name */}
-              <div>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Full Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
-                    focus:ring-[#006D77] text-gray-800 transition-all duration-300 ${
-                      errors.name ? "border-red-500" : "border-gray-300"
-                    }`}
-                />
-                {errors.name && (
-                  <p className="mt-1 text-sm text-red-500">{errors.name}</p>
-                )}
-              </div>
-
-              {/* Email */}
-              <div>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Email Address"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
-                    focus:ring-[#006D77] text-gray-800 transition-all duration-300 ${
-                      errors.email ? "border-red-500" : "border-gray-300"
-                    }`}
-                />
-                {errors.email && (
-                  <p className="mt-1 text-sm text-red-500">{errors.email}</p>
-                )}
-              </div>
-
-              {/* Phone */}
-              <div>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  placeholder="Phone Number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
-                    focus:ring-[#006D77] text-gray-800 transition-all duration-300 ${
-                      errors.phone ? "border-red-500" : "border-gray-300"
-                    }`}
-                />
-                {errors.phone && (
-                  <p className="mt-1 text-sm text-red-500">{errors.phone}</p>
-                )}
-              </div>
+              {/* Input fields */}
+              {[
+                { id: "name", type: "text", placeholder: "Full Name" },
+                { id: "email", type: "email", placeholder: "Email Address" },
+                { id: "phone", type: "tel", placeholder: "Phone Number" },
+              ].map((field) => (
+                <div key={field.id}>
+                  <input
+                    type={field.type}
+                    id={field.id}
+                    name={field.id}
+                    placeholder={field.placeholder}
+                    value={formData[field.id]}
+                    onChange={handleChange}
+                    className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
+                      focus:ring-[#006D77] text-gray-800 transition-all duration-300 shadow-sm hover:shadow-md ${
+                        errors[field.id] ? "border-red-500" : "border-gray-300"
+                      }`}
+                  />
+                  {errors[field.id] && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {errors[field.id]}
+                    </p>
+                  )}
+                </div>
+              ))}
 
               {/* Subject */}
               <div>
@@ -162,7 +126,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
-                    focus:ring-[#006D77] text-gray-800 transition-all duration-300 ${
+                    focus:ring-[#006D77] text-gray-800 transition-all duration-300 shadow-sm hover:shadow-md ${
                       errors.subject ? "border-red-500" : "border-gray-300"
                     }`}
                 >
@@ -187,7 +151,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   className={`w-full px-5 py-3 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 
-                    focus:ring-[#006D77] text-gray-800 transition-all duration-300 ${
+                    focus:ring-[#006D77] text-gray-800 transition-all duration-300 shadow-sm hover:shadow-md ${
                       errors.message ? "border-red-500" : "border-gray-300"
                     }`}
                 ></textarea>
@@ -200,44 +164,51 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[#006D77] text-white py-3 rounded-lg font-semibold 
-                           hover:bg-[#005A63] hover:shadow-lg transform hover:-translate-y-1 
-                           transition-all duration-300 ease-in-out focus:ring-4 focus:ring-[#FF6B6B]/40"
+                className="w-full bg-gradient-to-r from-[#006D77] to-[#FF6B6B] text-white py-3 rounded-lg 
+                           font-semibold shadow-md hover:shadow-xl transform hover:-translate-y-1 
+                           transition-all duration-300 ease-in-out focus:ring-4 focus:ring-[#006D77]/30"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact Info Cards */}
           <div className="space-y-8">
-            <div
-              className="bg-white border border-gray-200 rounded-2xl p-10 shadow-md 
-                         hover:shadow-2xl hover:border-[#FF6B6B]/40 transition-all duration-500"
-            >
-              <h3 className="text-xl font-semibold text-[#004d4d] mb-4">
-                Reach Us
-              </h3>
-              <ul className="space-y-3 text-gray-700 leading-relaxed">
-                <li>📍 SunShine School, Model Town, Lahore</li>
-                <li>📞 +92 300 1234567</li>
-                <li>📧 info@sunshineschool.edu.pk</li>
-              </ul>
-            </div>
-
-            <div
-              className="bg-white border border-gray-200 rounded-2xl p-10 shadow-md 
-                         hover:shadow-2xl hover:border-[#FF6B6B]/40 transition-all duration-500"
-            >
-              <h3 className="text-xl font-semibold text-[#004d4d] mb-4">
-                Office Hours
-              </h3>
-              <ul className="space-y-2 text-gray-700 leading-relaxed">
-                <li>Mon - Fri: 8:00 AM - 2:00 PM</li>
-                <li>Saturday: 8:00 AM - 12:00 PM</li>
-                <li>Sunday: Closed</li>
-              </ul>
-            </div>
+            {[
+              {
+                title: "Reach Us",
+                content: [
+                  "📍 SunShine School, Model Town, Lahore",
+                  "📞 +92 300 1234567",
+                  "📧 info@sunshineschool.edu.pk",
+                ],
+              },
+              {
+                title: "Office Hours",
+                content: [
+                  "Mon - Fri: 8:00 AM - 2:00 PM",
+                  "Saturday: 8:00 AM - 12:00 PM",
+                  "Sunday: Closed",
+                ],
+              },
+            ].map((section, i) => (
+              <div
+                key={i}
+                className="bg-white border border-transparent rounded-2xl p-10 shadow-md hover:shadow-2xl 
+                           hover:scale-[1.02] transition-all duration-500 
+                           bg-gradient-to-r from-[#006D77]/5 via-[#FAFAFA] to-[#FF6B6B]/5"
+              >
+                <h3 className="text-xl font-semibold text-[#004d4d] mb-4">
+                  {section.title}
+                </h3>
+                <ul className="space-y-3 text-gray-700 leading-relaxed">
+                  {section.content.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -55,23 +55,23 @@ const Gallery = () => {
 
   return (
     <div className="bg-[#FAFAFA] min-h-screen text-gray-800 py-28">
-      <div className="container mx-auto px-6 lg:px-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-16">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-[#006D77] mb-4 font-poppins tracking-wide">
+        <div className="text-center mb-12 sm:mb-16">
+          <h1 className="text-3xl sm:text-4xl font-bold text-[#006D77] mb-4 font-poppins tracking-wide">
             Our School Gallery
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Explore{" "}
             <span className="font-semibold text-[#006D77]">
               SunShine School
             </span>{" "}
-             where creativity, curiosity, and learning thrive every day.
+            where creativity, curiosity, and learning thrive every day.
           </p>
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mb-20">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-10 mb-16">
           {images.map((image) => (
             <div
               key={image.id}
@@ -83,19 +83,19 @@ const Gallery = () => {
                 <img
                   src={image.src}
                   alt={image.caption}
-                  className="w-full h-64 object-cover transform group-hover:scale-110 
+                  className="w-full h-40 sm:h-56 md:h-64 object-cover transform group-hover:scale-110 
                              transition-transform duration-700 ease-out"
                 />
 
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#006D77cc] via-transparent to-transparent 
                                 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end">
-                  <div className="p-5 text-left transform translate-y-4 group-hover:translate-y-0 
+                  <div className="p-3 sm:p-5 text-left transform translate-y-4 group-hover:translate-y-0 
                                   transition-transform duration-500">
-                    <h3 className="text-white text-lg font-semibold mb-1">
+                    <h3 className="text-white text-sm sm:text-lg font-semibold mb-1">
                       {image.caption}
                     </h3>
-                    <p className="text-[#FFB3B3] text-sm capitalize">
+                    <p className="text-[#FFB3B3] text-xs sm:text-sm capitalize">
                       {image.category.replace("-", " ")}
                     </p>
                   </div>
